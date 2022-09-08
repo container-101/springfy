@@ -1,4 +1,4 @@
-package com.container101.springfy;
+package com.container1o1.springfy;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
