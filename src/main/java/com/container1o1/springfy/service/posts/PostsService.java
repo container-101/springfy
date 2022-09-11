@@ -2,6 +2,7 @@ package com.container1o1.springfy.service.posts;
 
 import com.container1o1.springfy.domain.posts.Posts;
 import com.container1o1.springfy.domain.posts.PostsRepository;
+import com.container1o1.springfy.web.modules.posts.dto.PostsListResponseDto;
 import com.container1o1.springfy.web.modules.posts.dto.PostsResponseDto;
 import com.container1o1.springfy.web.modules.posts.dto.PostsSaveRequestDto;
 import lombok.RequiredArgsConstructor;
@@ -30,15 +31,24 @@ public class PostsService {
         return id;
     }
 
+    @Transactional
+    public void delete(Long id) {
+        Posts posts = postsRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("해당 게시글이 없습니다. id=" + id));
+
+        postsRepository.delete(posts);
+    }
+
     public PostsResponseDto findById(Long id) {
         Posts entity = postsRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("해당 게시글이 없습니다. id=" + id));
 
         return new PostsResponseDto(entity);
     }
 
-    public List<PostsResponseDto> findAll() {
-        List<Posts> posts = postsRepository.findAll();
 
-        return posts.stream().map(PostsResponseDto::new).collect(Collectors.toList());
+    @Transactional(readOnly = true)
+    public List<PostsListResponseDto> findAllDesc() {
+        return postsRepository.findAllDesc().stream()
+                .map(PostsListResponseDto::new)
+                .collect(Collectors.toList());
     }
 }
