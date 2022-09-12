@@ -23,6 +23,16 @@ spring:
       schema: classpath:org/springframework/session/jdbc/schema-mysql.sql
   profiles:
     include: oauth
+  security:
+    oauth2:
+      client:
+        registration:
+          google:
+            client-id: test
+            client-secret: test
+            scope:
+              - email
+              - profile
 server:
   servlet:
     context-path: /

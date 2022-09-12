@@ -1,5 +1,6 @@
 package com.container1o1.springfy.web.modules;
 
+import com.container1o1.springfy.config.auth.LoginUser;
 import com.container1o1.springfy.config.auth.SessionUser;
 import com.container1o1.springfy.service.posts.PostsService;
 import com.container1o1.springfy.web.modules.posts.dto.PostsResponseDto;
@@ -19,10 +20,8 @@ public class IndexController {
     private final HttpSession httpSession;
 
     @GetMapping("/")
-    public String index(Model model) {
+    public String index(Model model, @LoginUser SessionUser user) {
         model.addAttribute("posts", postsService.findAllDesc());
-
-        SessionUser user = (SessionUser) httpSession.getAttribute("user");
 
         if (user != null) {
             model.addAttribute("userName", user.getName());

@@ -28,6 +28,8 @@
 ## Learned - Tip
 
 1. Entity 클래스를 직접 사용하는 것은 추후 JOIN을 염두했을때 좋지 않다. 필요한 정보만 따로 직렬화 기능을 가진 Dto로 빼서 사용하자
+2. JPA Auditing을 기본으로 활성화하면 테스트코드쪽에서 에러가 발생한다(왜냐하면 @EnableJpaAuditing은 테스트하기 위해서 최소 하나의 @Entity 클래스가 필요). 따라서 JPA Config
+   파일로 따로 빼서 사용해야한다
 
 ## Learned - TestCode
 

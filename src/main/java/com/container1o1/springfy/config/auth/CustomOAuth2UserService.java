@@ -1,8 +1,8 @@
 package com.container1o1.springfy.config.auth;
 
+import com.container1o1.springfy.config.auth.dto.OAuthAttributes;
 import com.container1o1.springfy.domain.user.User;
 import com.container1o1.springfy.domain.user.UserRepository;
-import com.container1o1.springfy.domain.user.dto.OAuthAttributes;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.oauth2.client.userinfo.DefaultOAuth2UserService;

@@ -27,8 +27,10 @@ dependencies {
     implementation('org.springframework.boot:spring-boot-starter-oauth2-client')
     implementation('com.h2database:h2')
     implementation('mysql:mysql-connector-java')
+    implementation('org.springframework.session:spring-session-jdbc')
     testImplementation 'junit:junit:4.13.2'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    testImplementation('org.springframework.security:spring-security-test')
     developmentOnly("org.springframework.boot:spring-boot-devtools")
     developmentOnly 'org.springframework.boot:spring-boot-devtools'
     annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'
