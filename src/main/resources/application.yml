@@ -16,8 +16,10 @@ spring:
         format_sql: true
         hbm2ddl:
           auto: update
+  profiles:
+    include: oauth
 server:
   servlet:
-    context-path: /api/v1
+    context-path: /
     encoding:
       force-response: true

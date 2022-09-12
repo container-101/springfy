@@ -51,7 +51,7 @@ public class PostsControllerTest {
                 .build();
 
         // when
-        ResponseEntity<Long> responseEntity = restTemplate.postForEntity("/posts", requestDto, Long.class);
+        ResponseEntity<Long> responseEntity = restTemplate.postForEntity("/api/v1/posts", requestDto, Long.class);
 
         // then
         assertThat(responseEntity.getStatusCode()).isEqualTo(HttpStatus.OK);
